@@ -3,15 +3,24 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // فقط به درخواست‌های /api پاسخ بده
+    // 1. اگر مسیر /api بود، به منطق API برو
     if (path.startsWith('/api')) {
       return await handleAPI(request, env);
     }
 
-    // برای بقیه مسیرها، 404 برگردان (چون فایل‌ها در GitHub Pages هستند)
+    // 2. اگر مسیر ریشه (/) بود، index.html را از GitHub Pages برگردان (بدون کپی کردن)
+    if (path === '/') {
+      return fetch('https://salhamir146-prog.github.io/2222222222222222/index.html');
+    }
+
+    // 3. برای بقیه مسیرها، 404
     return new Response('Not Found', { status: 404 });
   }
 };
+
+// ============================================================
+// منطق API (همان کدهای قبلی)
+// ============================================================
 
 async function handleAPI(request, env) {
   const url = new URL(request.url);
@@ -67,7 +76,6 @@ async function handleSendOTP(request, env, corsHeaders) {
   const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
   await env.OTP_KV.put(`otp_${phone}`, otpCode, { expirationTtl: 120 });
 
-  // در اینجا کد ارسال پیامک واقعی را قرار دهید
   console.log(`کد تایید برای ${phone}: ${otpCode}`);
 
   return new Response(JSON.stringify({ success: true, message: 'کد تایید ارسال شد.' }), {
