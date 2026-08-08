@@ -1,4 +1,6 @@
-const API_BASE = 'https://2222222222222222.salhamir146.workers.dev/';
+// api.js - نسخه نهایی با آدرس Worker شما
+
+const API_BASE = 'https://2222222222222222.salhamir146.workers.dev';
 
 let otpTimer = null;
 let remainingTime = 0;
