@@ -1,12 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // المان‌های صفحه ورود
+    console.log('✅ index.js loaded successfully');
+
+    // =============================================================
+    // 1. المان‌های صفحه ورود
+    // =============================================================
     const loginForm = document.getElementById('loginForm');
     const phoneInput = document.getElementById('phone');
     const referralToggle = document.getElementById('referralToggle');
     const loginSubmitBtn = document.getElementById('loginSubmitBtn');
     const goToRegister = document.getElementById('goToRegister');
+    const loginSection = document.getElementById('loginSection');
 
-    // المان‌های صفحه ثبت‌نام
+    // =============================================================
+    // 2. المان‌های صفحه ثبت‌نام
+    // =============================================================
     const registerSection = document.getElementById('registerSection');
     const registerForm = document.getElementById('registerForm');
     const regPhone = document.getElementById('regPhone');
@@ -16,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerSubmitBtn = document.getElementById('registerSubmitBtn');
     const backToLoginFromRegister = document.getElementById('backToLoginFromRegister');
 
-    // المان‌های صفحه OTP
+    // =============================================================
+    // 3. المان‌های صفحه OTP
+    // =============================================================
     const otpSection = document.getElementById('otpSection');
     const otpPhoneDisplay = document.getElementById('otpPhoneDisplay');
     const otpInput = document.getElementById('otpInput');
@@ -25,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const resendBtn = document.getElementById('resendBtn');
     const backToLoginFromOtp = document.getElementById('backToLoginFromOtp');
 
-    // پاپ‌آپ‌ها
+    // =============================================================
+    // 4. پاپ‌آپ‌ها
+    // =============================================================
     const termsOverlay = document.getElementById('termsOverlay');
     const privacyOverlay = document.getElementById('privacyOverlay');
     const referralOverlay = document.getElementById('referralOverlay');
@@ -34,8 +45,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeTerms = document.getElementById('closeTerms');
     const closePrivacy = document.getElementById('closePrivacy');
     const closeReferral = document.getElementById('closeReferral');
+    const openTerms = document.getElementById('openTerms');
+    const openPrivacy = document.getElementById('openPrivacy');
 
-    // چک‌باکس کد معرف
+    // =============================================================
+    // 5. توابع کمکی پاپ‌آپ
+    // =============================================================
+    function openOverlay(overlay) {
+        if (overlay) overlay.classList.add('active');
+    }
+    function closeOverlay(overlay) {
+        if (overlay) overlay.classList.remove('active');
+    }
+
+    // =============================================================
+    // 6. چک‌باکس کد معرف
+    // =============================================================
     if (referralToggle) {
         referralToggle.addEventListener('change', function() {
             if (this.checked) {
@@ -44,40 +69,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // رفتن به ثبت‌نام و بازگشت
-    if (goToRegister) {
-        goToRegister.addEventListener('click', function() {
-            loginSection.style.display = 'none';
-            registerSection.classList.add('active');
+    // =============================================================
+    // 7. لینک‌های قوانین و حریم خصوصی
+    // =============================================================
+    if (openTerms) {
+        openTerms.addEventListener('click', function(e) {
+            e.preventDefault();
+            openOverlay(termsOverlay);
         });
     }
-    if (backToLoginFromRegister) {
-        backToLoginFromRegister.addEventListener('click', function() {
-            registerSection.classList.remove('active');
-            loginSection.style.display = 'block';
-        });
-    }
-    if (backToLoginFromOtp) {
-        backToLoginFromOtp.addEventListener('click', function() {
-            otpSection.style.display = 'none';
-            loginSection.style.display = 'block';
+    if (closeTerms) {
+        closeTerms.addEventListener('click', function() {
+            closeOverlay(termsOverlay);
         });
     }
 
-    // توابع پاپ‌آپ
-    function openOverlay(overlay) {
-        if (overlay) overlay.classList.add('active');
+    if (openPrivacy) {
+        openPrivacy.addEventListener('click', function(e) {
+            e.preventDefault();
+            openOverlay(privacyOverlay);
+        });
     }
-    function closeOverlay(overlay) {
-        if (overlay) overlay.classList.remove('active');
+    if (closePrivacy) {
+        closePrivacy.addEventListener('click', function() {
+            closeOverlay(privacyOverlay);
+        });
     }
 
-    // دکمه‌های بستن پاپ‌آپ
-    if (closeTerms) closeTerms.addEventListener('click', () => closeOverlay(termsOverlay));
-    if (closePrivacy) closePrivacy.addEventListener('click', () => closeOverlay(privacyOverlay));
-    if (closeReferral) closeReferral.addEventListener('click', () => closeOverlay(referralOverlay));
-
-    // تایید کد معرف
+    // =============================================================
+    // 8. پاپ‌آپ کد معرف
+    // =============================================================
+    if (closeReferral) {
+        closeReferral.addEventListener('click', function() {
+            closeOverlay(referralOverlay);
+            if (referralToggle) referralToggle.checked = false;
+        });
+    }
     if (confirmReferral) {
         confirmReferral.addEventListener('click', function() {
             const code = referralCodeInput ? referralCodeInput.value.trim() : '';
@@ -90,7 +117,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ارسال فرم ورود
+    // =============================================================
+    // 9. رفتن به صفحه ثبت‌نام و بازگشت
+    // =============================================================
+    if (goToRegister) {
+        goToRegister.addEventListener('click', function() {
+            if (loginSection) loginSection.style.display = 'none';
+            if (registerSection) registerSection.classList.add('active');
+        });
+    }
+    if (backToLoginFromRegister) {
+        backToLoginFromRegister.addEventListener('click', function() {
+            if (registerSection) registerSection.classList.remove('active');
+            if (loginSection) loginSection.style.display = 'block';
+        });
+    }
+    if (backToLoginFromOtp) {
+        backToLoginFromOtp.addEventListener('click', function() {
+            if (otpSection) otpSection.style.display = 'none';
+            if (loginSection) loginSection.style.display = 'block';
+        });
+    }
+
+    // =============================================================
+    // 10. ارسال فرم ورود
+    // =============================================================
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -102,4 +153,39 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('درخواست کد تایید به شماره ' + phone + ' ارسال شد.');
         });
     }
+
+    // =============================================================
+    // 11. ارسال فرم ثبت‌نام
+    // =============================================================
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('فرم ثبت‌نام ارسال شد.');
+        });
+    }
+
+    // =============================================================
+    // 12. دکمه تایید OTP
+    // =============================================================
+    if (verifyOtpBtn) {
+        verifyOtpBtn.addEventListener('click', function() {
+            const code = otpInput ? otpInput.value.trim() : '';
+            if (!code || code.length !== 6) {
+                alert('لطفاً کد ۶ رقمی را کامل وارد کنید.');
+                return;
+            }
+            alert('کد ' + code + ' تایید شد.');
+        });
+    }
+
+    // =============================================================
+    // 13. تایمر
+    // =============================================================
+    if (resendBtn) {
+        resendBtn.addEventListener('click', function() {
+            alert('درخواست ارسال مجدد کد.');
+        });
+    }
+
+    console.log('✅ All event listeners attached successfully.');
 });
