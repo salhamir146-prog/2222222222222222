@@ -1,1 +1,15 @@
-wrangler.toml
+name = "2222222222222222"
+main = "worker.js"
+compatibility_date = "2026-08-08"
+
+[[kv_namespaces]]
+binding = "OTP_KV"
+id = "otp_kv"
+
+[[kv_namespaces]]
+binding = "USERS_KV"
+id = "users_kv"
+
+[vars]
+SMS_API_KEY = "کلید_واقعی_پنل_پیامکی_اینجا"
+SMS_SENDER = "شماره_فرستنده_اینجا"
