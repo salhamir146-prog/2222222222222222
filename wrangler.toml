@@ -8,7 +8,7 @@ id = "otp_kv"
 
 [[kv_namespaces]]
 binding = "USERS_KV"
-id = "users_kv"
+id = "13d8327012c64cb4976d0432b4298112"
 
 [vars]
 SMS_API_KEY = "کلید_واقعی_پنل_پیامکی_اینجا"
