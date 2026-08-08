@@ -8,18 +8,13 @@ export default {
       return await handleAPI(request, env);
     }
 
-    // 2. هر مسیر دیگری که با / شروع می‌شود، از GitHub Pages بیاور
-    if (path.startsWith('/')) {
-      return fetch('https://salhamir146-prog.github.io/2222222222222222' + path);
-    }
-
-    // 3. برای بقیه مسیرها، 404
-    return new Response('Not Found', { status: 404 });
+    // 2. هر مسیر دیگری را به GitHub Pages هدایت کن (فایل‌های CSS، JS، فونت‌ها و ...)
+    return fetch('https://salhamir146-prog.github.io/2222222222222222' + path);
   }
 };
 
 // ============================================================
-// منطق API (همان کدهای قبلی)
+// منطق API (همان کدهای قبلی - بدون تغییر)
 // ============================================================
 
 async function handleAPI(request, env) {
