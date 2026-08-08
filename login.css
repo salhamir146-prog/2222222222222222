@@ -1,27 +1,8 @@
-@font-face {
-    font-family: 'Vazirmatn';
-    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Vazirmatn';
-    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Vazirmatn';
-    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Vazirmatn';
-    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-ExtraBold.woff2') format('woff2');
-    font-weight: 800;
-    font-display: swap;
-}
+/* تنظیمات پایه با فونت وزیرمتن (بهترین فونت فارسی) */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Regular.woff2');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Medium.woff2');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Bold.woff2');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-ExtraBold.woff2');
 
 * {
     margin: 0;
@@ -39,6 +20,7 @@ body {
     position: relative;
 }
 
+/* هدر */
 .app-header {
     width: 100%;
     max-width: 450px;
@@ -71,6 +53,7 @@ body {
     letter-spacing: 2px;
 }
 
+/* کارت اصلی ورود */
 .login-card {
     width: 100%;
     max-width: 420px;
@@ -118,6 +101,7 @@ body {
     font-weight: 500;
 }
 
+/* ورودی‌ها */
 .input-group {
     margin-bottom: 22px;
 }
@@ -148,6 +132,7 @@ body {
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
 }
 
+/* منوی کشویی سفارشی */
 .custom-select-wrapper {
     position: relative;
     user-select: none;
@@ -225,6 +210,7 @@ body {
     background: #0f172a;
 }
 
+/* چک‌باکس */
 .referral-group {
     display: flex;
     justify-content: flex-end;
@@ -273,6 +259,7 @@ body {
     100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
+/* دکمه اصلی */
 button {
     width: 100%;
     padding: 16px;
@@ -297,6 +284,7 @@ button:disabled {
     transform: none;
 }
 
+/* دکمه متنی ثبت‌نام */
 .no-account-btn {
     text-align: center;
     margin-top: 20px;
@@ -312,6 +300,7 @@ button:disabled {
     color: #0f172a;
 }
 
+/* قوانین */
 .terms {
     text-align: center;
     margin-top: 16px;
@@ -329,6 +318,7 @@ button:disabled {
     color: #0f172a;
 }
 
+/* پاپ‌آپ‌ها */
 .overlay {
     display: none;
     position: fixed;
@@ -390,6 +380,7 @@ button:disabled {
     margin-bottom: 15px;
 }
 
+/* صفحه ثبت‌نام */
 .register-section {
     display: none;
     width: 100%;
@@ -415,6 +406,8 @@ button:disabled {
 .register-section .input-group {
     margin-bottom: 18px;
 }
+
+/* بازگشت به صفحه ورود */
 .back-to-login {
     text-align: center;
     margin-top: 20px;
@@ -428,49 +421,8 @@ button:disabled {
     color: #0f172a;
 }
 
-.otp-section {
-    width: 100%;
-    max-width: 420px;
-    margin-top: -10px;
-    position: relative;
-    z-index: 2;
-}
-.otp-card {
-    background: white;
-    border-radius: 24px;
-    padding: 30px 28px 35px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-}
-.otp-timer-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px 0 20px;
-    font-size: 0.9rem;
-    color: #64748b;
-}
-.otp-timer-group button {
-    width: auto;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    background: transparent;
-    color: #1e293b;
-    border: 1px solid #d4af37;
-    box-shadow: none;
-    margin: 0;
-}
-.otp-timer-group button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    border-color: #e2e8f0;
-}
-.otp-timer-group button:hover:not(:disabled) {
-    background: #f2f4f8;
-    transform: none;
-    box-shadow: none;
-}
-
+/* موبایل */
 @media (max-width: 450px) {
     .app-header { border-radius: 0; }
-    .login-card, .register-section, .otp-section { border-radius: 20px 20px 0 0; margin-top: 0; }
+    .login-card, .register-section { border-radius: 20px 20px 0 0; margin-top: 0; }
 }
