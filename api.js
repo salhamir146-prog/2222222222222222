@@ -1,5 +1,4 @@
-const API_BASE = '/api';
-
+const API_BASE = 'https://2222222222222222.salhamir146.workers.dev';
 let otpTimer = null;
 let remainingTime = 0;
 
