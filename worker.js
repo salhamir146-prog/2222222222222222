@@ -13,10 +13,6 @@ export default {
   }
 };
 
-// ============================================================
-// منطق API (همان کدهای قبلی - بدون تغییر)
-// ============================================================
-
 async function handleAPI(request, env) {
   const url = new URL(request.url);
   const path = url.pathname;
