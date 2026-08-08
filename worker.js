@@ -8,9 +8,9 @@ export default {
       return await handleAPI(request, env);
     }
 
-    // 2. اگر مسیر ریشه (/) بود، index.html را از GitHub Pages برگردان (بدون کپی کردن)
-    if (path === '/') {
-      return fetch('https://salhamir146-prog.github.io/2222222222222222/index.html');
+    // 2. اگر مسیر ریشه (/) یا فایل‌های استاتیک بود، از GitHub Pages بیاور
+    if (path === '/' || path === '/index.html' || path === '/login.css' || path === '/index.js' || path === '/api.js') {
+      return fetch('https://salhamir146-prog.github.io/2222222222222222' + path);
     }
 
     // 3. برای بقیه مسیرها، 404
