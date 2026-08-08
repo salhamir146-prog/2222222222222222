@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // =============================================================
     const loginForm = document.getElementById('loginForm');
     const phoneInput = document.getElementById('phone');
-    const referralToggle = document.getElementById('referralToggle');
     const loginSubmitBtn = document.getElementById('loginSubmitBtn');
     const goToRegister = document.getElementById('goToRegister');
     const loginSection = document.getElementById('loginSection');
@@ -49,7 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const openPrivacy = document.getElementById('openPrivacy');
 
     // =============================================================
-    // 5. توابع کمکی پاپ‌آپ
+    // 5. چک‌باکس کد معرف
+    // =============================================================
+    const referralToggle = document.getElementById('referralToggle');
+
+    // =============================================================
+    // 6. توابع کمکی پاپ‌آپ
     // =============================================================
     function openOverlay(overlay) {
         if (overlay) overlay.classList.add('active');
@@ -59,18 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 6. چک‌باکس کد معرف
+    // 7. چک‌باکس کد معرف
     // =============================================================
     if (referralToggle) {
         referralToggle.addEventListener('change', function() {
             if (this.checked) {
                 openOverlay(referralOverlay);
+            } else {
+                closeOverlay(referralOverlay);
             }
         });
     }
 
     // =============================================================
-    // 7. لینک‌های قوانین و حریم خصوصی
+    // 8. لینک‌های قوانین و حریم خصوصی
     // =============================================================
     if (openTerms) {
         openTerms.addEventListener('click', function(e) {
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 8. پاپ‌آپ کد معرف
+    // 9. پاپ‌آپ کد معرف
     // =============================================================
     if (closeReferral) {
         closeReferral.addEventListener('click', function() {
@@ -118,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 9. رفتن به صفحه ثبت‌نام و بازگشت
+    // 10. رفتن به صفحه ثبت‌نام و بازگشت
     // =============================================================
     if (goToRegister) {
         goToRegister.addEventListener('click', function() {
@@ -140,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 10. ارسال فرم ورود
+    // 11. ارسال فرم ورود
     // =============================================================
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -155,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 11. ارسال فرم ثبت‌نام
+    // 12. ارسال فرم ثبت‌نام
     // =============================================================
     if (registerForm) {
         registerForm.addEventListener('submit', function(e) {
@@ -165,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 12. دکمه تایید OTP
+    // 13. دکمه تایید OTP
     // =============================================================
     if (verifyOtpBtn) {
         verifyOtpBtn.addEventListener('click', function() {
@@ -179,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =============================================================
-    // 13. تایمر
+    // 14. تایمر
     // =============================================================
     if (resendBtn) {
         resendBtn.addEventListener('click', function() {
