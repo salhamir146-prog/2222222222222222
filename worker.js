@@ -8,8 +8,8 @@ export default {
       return await handleAPI(request, env);
     }
 
-    // 2. اگر مسیر ریشه (/) یا فایل‌های استاتیک بود، از GitHub Pages بیاور
-    if (path === '/' || path === '/index.html' || path === '/login.css' || path === '/index.js' || path === '/api.js') {
+    // 2. هر مسیر دیگری که با / شروع می‌شود، از GitHub Pages بیاور
+    if (path.startsWith('/')) {
       return fetch('https://salhamir146-prog.github.io/2222222222222222' + path);
     }
 
